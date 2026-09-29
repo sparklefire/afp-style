@@ -77,8 +77,8 @@
         <h2>交代现场</h2>
         <p class="question">事情发生在哪里？</p>
         <p class="use">用环境全景呈现场地、人物和事件之间的关系。适合读者还不了解现场时。</p>
-        <pre id="wide">环境全景：用【已确认的现场】交代事件发生地，人物与环境共同呈现报道重点。</pre>
-        <button type="button" data-copy="wide">复制取景句</button>
+        <pre id="wide">法新社风格新闻纪实摄影。环境全景：在【已确认的现场】呈现【已确认的人物】正在【已确认的动作】，交代事件发生地和人物与环境的关系。自然光，真实材质，克制的自然色彩，像记者在现场观察到的瞬间。只依据已确认信息；未知身份、时间和事件结果保持不明确。画面不含标题、字幕、标志或水印。</pre>
+        <button type="button" data-copy="wide">复制完整提示词</button>
       </div>
     </article>
 
@@ -98,8 +98,8 @@
         <h2>呈现行动</h2>
         <p class="question">人物正在做什么？</p>
         <p class="use">用环境中景聚焦人物动作，同时保留理解现场所需的背景。适合报道中的关键时刻。</p>
-        <pre id="action">人物中景：让【已确认的人物】正在【已确认的动作】成为焦点，保留必要的现场环境。</pre>
-        <button type="button" data-copy="action">复制取景句</button>
+        <pre id="action">法新社风格新闻纪实摄影。人物中景：让【已确认的人物】正在【已确认的动作】成为焦点，保留理解事件所需的现场环境。自然光，真实材质，克制的自然色彩，像记者在现场观察到的瞬间。只依据已确认信息；未知身份、时间和事件结果保持不明确。画面不含标题、字幕、标志或水印。</pre>
+        <button type="button" data-copy="action">复制完整提示词</button>
       </div>
     </article>
 
@@ -118,8 +118,8 @@
         <h2>捕捉细节</h2>
         <p class="question">哪个动作或物件最能补充信息？</p>
         <p class="use">用近景表现有报道依据的手部动作或物件。只有细节本身有意义时才选，不把它包装成证据。</p>
-        <pre id="detail">动作近景：聚焦【报道已确认的手部动作或物件细节】，不增加未说明的身份和场景信息。</pre>
-        <button type="button" data-copy="detail">复制取景句</button>
+        <pre id="detail">法新社风格新闻纪实摄影。动作近景：聚焦【报道已确认的手部动作或物件细节】，让这一细节补充报道信息，不将其包装成证据。自然光，真实材质，克制的自然色彩，像记者在现场观察到的瞬间。只依据已确认信息；未知身份、时间和事件结果保持不明确。画面不含标题、字幕、标志或水印。</pre>
+        <button type="button" data-copy="detail">复制完整提示词</button>
       </div>
     </article>
   </section>
@@ -133,7 +133,7 @@
     return [targetId, document.getElementById(targetId).textContent];
   }));
   const factBindings = {
-    wide: [['【已确认的现场】', 'fact-location']],
+    wide: [['【已确认的现场】', 'fact-location'], ['【已确认的人物】', 'fact-person'], ['【已确认的动作】', 'fact-action']],
     action: [['【已确认的人物】', 'fact-person'], ['【已确认的动作】', 'fact-action']],
     detail: [['【报道已确认的手部动作或物件细节】', 'fact-detail']]
   };

@@ -60,11 +60,15 @@ class CoverageGalleryTests(unittest.TestCase):
         for target in ("wide", "action", "detail"):
             self.assertIn(f"{target}: [[", html)
         self.assertIn("不会上传", html)
+        self.assertEqual(html.count("复制完整提示词"), 3)
+        self.assertEqual(html.count("法新社风格新闻纪实摄影。"), 3)
 
     def test_gallery_links_in_skill_and_readme_resolve(self):
         target = ROOT / "gallery/coverage.html"
         for document in (ROOT / "SKILL.md", ROOT / "README.md"):
-            self.assertIn("gallery/coverage.html", document.read_text(encoding="utf-8"))
+            content = document.read_text(encoding="utf-8")
+            self.assertIn("gallery/coverage.html", content)
+            self.assertIn("完整提示词", content)
         self.assertTrue(target.is_file())
 
 
