@@ -4,6 +4,16 @@
 
 默认提供提示词或文章配图方案；只有明确要求生成、编辑或预览图片时才调用图像工具。文章回填会保留原文并写到新文件。
 
+## 安装与调用
+
+保持整个 `afp-style` 目录结构完整，并复制到目标 Agent 的 Skills 目录。Codex 默认目录为 `~/.codex/skills/afp-style`；如果设置了 `CODEX_HOME`，则放到 `$CODEX_HOME/skills/afp-style`。其他 Agent 请使用其文档指定的 Skills 路径。
+
+安装后可用 `$afp-style` 调用，例如：
+
+```text
+用 $afp-style 根据这段已确认的报道事实生成一张新闻纪实配图：工程师正在数据中心检查服务器。
+```
+
 ## 使用示例
 
 ```text
