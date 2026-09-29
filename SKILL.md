@@ -1,6 +1,6 @@
 ---
 name: afp-style
-description: "Create or edit 法新社风格新闻纪实图片 from user-provided facts or images. Use for news visuals or article illustration planning; distinguish edit targets from style references, preserve facts, and label realistic depictions as AI illustrations."
+description: "Create or edit 法新社风格新闻纪实图片 from confirmed facts or supplied images; also plan news covers and article illustrations. Distinguish edit targets from style references, preserve event facts, and label realistic results as AI illustrations."
 ---
 
 # 法新社风格新闻纪实视觉
