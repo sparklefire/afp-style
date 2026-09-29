@@ -1,4 +1,4 @@
 interface:
   display_name: "法新社风格视觉助手"
-  short_description: "生成或转绘法新社风格新闻纪实图，并设计报道封面和配图方案"
-  default_prompt: "用 $afp-style 根据报道生成或转绘新闻纪实图、设计头图，或规划正文配图。"
+  short_description: "生成或转绘法新社风格暗调远景图，并设计报道封面和组图方案"
+  default_prompt: "用 $afp-style 按法新社滤镜生成或转绘暗调远景新闻图，也可规划封面和组图。"
