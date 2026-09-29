@@ -1,4 +1,4 @@
 interface:
-  display_name: "法新社风格视觉助手"
-  short_description: "生成或转绘法新社风格暗调远景图，并设计报道封面和组图方案"
-  default_prompt: "用 $afp-style 按法新社滤镜生成或转绘暗调远景新闻图，也可规划封面和组图。"
+  display_name: "法新社滤镜视觉助手"
+  short_description: "生成或转绘暗调工业新闻图，保留红色并使用广角远景或仰拍构图"
+  default_prompt: "用 $afp-style 按暗调低饱和、高反差、选择性红色与远景大仰角设计新闻图。"
