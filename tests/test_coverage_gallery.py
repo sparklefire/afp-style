@@ -61,7 +61,13 @@ class CoverageGalleryTests(unittest.TestCase):
             self.assertIn(f"{target}: [[", html)
         self.assertIn("不会上传", html)
         self.assertEqual(html.count("复制完整提示词"), 3)
-        self.assertEqual(html.count("法新社风格新闻纪实摄影。"), 3)
+        self.assertEqual(html.count("法新社滤镜风格暗调新闻摄影。"), 3)
+        self.assertGreaterEqual(html.count("冷暗低饱和色调"), 3)
+        self.assertGreaterEqual(html.count("远景"), 3)
+        self.assertGreaterEqual(html.count("面部"), 3)
+        self.assertGreaterEqual(html.count("深阴影"), 3)
+        self.assertGreaterEqual(html.count("压迫感"), 3)
+        self.assertNotIn("人物中景", html)
 
     def test_gallery_links_in_skill_and_readme_resolve(self):
         target = ROOT / "gallery/coverage.html"
