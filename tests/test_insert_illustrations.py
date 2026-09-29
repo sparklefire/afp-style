@@ -31,6 +31,12 @@ class InsertIllustrationsTests(unittest.TestCase):
         }])
         self.assertTrue(result.startswith("![AFP 风格配图 1](lead.webp)\n*AI 生成示意图*\n\n# Report"))
 
+    def test_can_insert_before_a_paragraph_without_changing_it(self):
+        result = insert_illustrations(self.article, [{
+            "anchor": "First paragraph", "position": "before", "image_path": "lead.webp",
+        }])
+        self.assertIn("# Report\n\n![AFP 风格配图 1](lead.webp)\n*AI 生成示意图*\n\nFirst paragraph", result)
+
     def test_rejects_missing_or_ambiguous_anchor(self):
         for anchor, article in (("missing", self.article), ("paragraph", self.article * 2)):
             with self.subTest(anchor=anchor), self.assertRaisesRegex(ValueError, "Anchor"):
@@ -39,6 +45,8 @@ class InsertIllustrationsTests(unittest.TestCase):
     def test_rejects_list_anchor_and_invalid_position(self):
         with self.assertRaisesRegex(ValueError, "lists"):
             insert_illustrations("- item\n", [{"anchor": "item", "image_path": "x.webp"}])
+        with self.assertRaisesRegex(ValueError, "code blocks"):
+            insert_illustrations("```md\n# Heading in code\n```\n", [{"anchor": "# Heading", "image_path": "x.webp"}])
         with self.assertRaisesRegex(ValueError, "position"):
             insert_illustrations(self.article, [{"anchor": "First paragraph", "image_path": "x.webp", "position": "middle"}])
 

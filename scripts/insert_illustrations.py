@@ -14,6 +14,17 @@ from urllib.parse import quote
 
 def _paragraph_bounds(lines: list[str], index: int) -> tuple[int, int]:
     line = lines[index].lstrip()
+    fence = None
+    for prior in lines[: index + 1]:
+        marker = re.match(r"^\s*(`{3,}|~{3,})", prior)
+        if marker:
+            token = marker.group(1)
+            if fence is None:
+                fence = token
+            elif token[0] == fence[0] and len(token) >= len(fence):
+                fence = None
+    if fence is not None:
+        raise ValueError("Anchors inside fenced code blocks are unsupported; use a heading or paragraph.")
     if line.startswith("#"):
         return index, index + 1
     if line.startswith(("- ", "* ", "+ ", ">", "|", "```", "~~~")) or re.match(r"\d+[.)] ", line):
