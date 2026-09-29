@@ -1,4 +1,4 @@
 interface:
   display_name: "法新社风格视觉助手"
-  short_description: "根据事实生成或转绘法新社风格新闻图，保留现场与人物关系"
-  default_prompt: "用 $afp-style 把这段报道生成新图，或将我上传的照片转绘成法新社风格。"
+  short_description: "从报道主题生成或转绘新闻纪实图片，突出人物与现场"
+  default_prompt: "用 $afp-style 根据已确认的报道事实生成新闻纪实配图，或将我上传的照片转绘成法新社风格。"
