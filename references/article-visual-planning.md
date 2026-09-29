@@ -38,4 +38,10 @@
 - 发布标注：AI 生成示意图
 ```
 
-只有用户明确要求自动生成、插图或改写文章文件时，才继续执行这些操作；执行前确认目标文件和输出位置。
+只有用户明确要求生成、插图或改写文章文件时，才继续执行这些操作。图片文件准备好后，可用 `scripts/insert_illustrations.py` 按计划锚点回填：
+
+```bash
+python scripts/insert_illustrations.py --article report.md --manifest images.json
+```
+
+清单为 JSON 数组，每项包含 `anchor`、`position` 和 `image_path`，可选 `caption`、`alt`、`disclosure`。锚点必须唯一匹配标题或段落；缺失或重复时脚本会报错，不会把图片静默追加到文末。默认输出同目录的 `report_afp_illustrated.md`，不会覆盖原文；只有指定 `--force` 才会覆盖已有输出文件。
