@@ -1,11 +1,13 @@
 ---
 name: afp-style
-description: "Create or edit images with 法新社风格新闻纪实视觉语言: candid human moments, real settings, natural light, and restrained color. Use when the user wants a news-style visual or to restyle an image; keep event facts grounded and disclose generated depictions as illustrations."
+description: "Create or edit 法新社风格新闻纪实图片 from user-provided facts or images. Use for news visuals or article illustration planning; distinguish edit targets from style references, preserve facts, and label realistic depictions as AI illustrations."
 ---
 
 # 法新社风格新闻纪实视觉
 
 把用户提供的报道事实、主题或图片转成客观、有人文观察、现场感强的新闻纪实视觉。这里的“法新社风格”指用户描述的新闻摄影特征，不代表法新社官方作品、授权或背书，也不模仿某位具体摄影师。
+
+当用户提供整篇文章或要求一组文章配图时，读取 [references/article-visual-planning.md](references/article-visual-planning.md)；单张图片任务不需要加载该参考。
 
 ## 先判断任务和素材角色
 
@@ -21,6 +23,8 @@ description: "Create or edit images with 法新社风格新闻纪实视觉语言
 若用户同时提供多张图，必要时先用一句话确认哪张是编辑目标、哪张是视觉参考。用户明确说明后，不重复追问。
 
 ## 工作方式
+
+默认交付提示词或配图方案。只有用户明确要求生成、编辑或预览图片时，才调用图像工具；请求含义不明确时先交付提示词。
 
 1. **提取已知信息。** 记录用户给出的主体、可观察动作、地点、时间和报道重点。缺失且会改变事件含义的信息要询问；其他细节保持泛化。
 2. **把主题落到可见瞬间。** 让人物在做具体事情，环境交代事件发生在哪里。优先抓拍感、自然表情和真实工作状态，避免看镜头摆拍或产品展示姿势。
