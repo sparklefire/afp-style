@@ -46,6 +46,8 @@
 
 参考 [演示示例](examples/demo.md)。
 
+准备黑客松项目演示视频时，可照着[5 分钟录屏脚本](DEMO_SCRIPT.md)展示主要流程。
+
 如需把已生成图片插回本地 Markdown 文章，可使用 [插图回填脚本](scripts/insert_illustrations.py)。它把结果写入新文件，并在锚点缺失或重复时停止，避免错位插图。
 
 ## 能力边界
