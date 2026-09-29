@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>法新社风格｜取景方向速览</title>
+  <style>
+    :root { color-scheme: light; --ink:#202522; --muted:#606a64; --paper:#f3f4ef; --line:#d6dbd5; --accent:#315f4b; --warm:#c78152; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+    main { width:min(1120px, calc(100% - 36px)); margin:0 auto; padding:54px 0 64px; }
+    .eyebrow { color:var(--accent); font-size:.76rem; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:.45rem 0 .5rem; font-size:clamp(2rem,5vw,3.4rem); line-height:1.08; letter-spacing:-.045em; }
+    .intro { max-width:680px; color:var(--muted); }
+    .note { display:inline-block; margin:15px 0 28px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:.83rem; }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    article { overflow:hidden; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:0 8px 28px #26372a0b; }
+    .scene { display:block; width:100%; aspect-ratio:16/10; background:#e7ebe5; }
+    .body { padding:19px 20px 20px; }
+    .number { color:var(--warm); font:700 .76rem/1.2 ui-monospace,monospace; }
+    h2 { margin:6px 0 4px; font-size:1.2rem; }
+    .question { margin:0 0 12px; color:var(--accent); font-weight:650; }
+    .use { min-height:3.2em; margin:0 0 14px; color:var(--muted); font-size:.92rem; }
+    pre { min-height:6em; margin:0 0 13px; padding:11px 12px; overflow:auto; border-radius:9px; background:#f4f6f2; color:#343d37; white-space:pre-wrap; font: .82rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; }
+    button { padding:8px 12px; border:0; border-radius:8px; background:var(--accent); color:white; font:inherit; font-size:.87rem; cursor:pointer; }
+    button:hover { background:#244936; }
+    button:focus-visible { outline:3px solid #df9d62; outline-offset:2px; }
+    #status { min-height:1.5em; margin:8px 0 0; color:var(--muted); font-size:.82rem; }
+    footer { margin-top:28px; padding-top:15px; border-top:1px solid var(--line); color:var(--muted); font-size:.87rem; }
+    @media (max-width:800px) { .cards { grid-template-columns:1fr; } .use, pre { min-height:0; } main { padding-top:34px; } }
+    @media (prefers-reduced-motion:no-preference) { article { transition:transform .18s ease, box-shadow .18s ease; } article:hover { transform:translateY(-3px); box-shadow:0 12px 32px #26372a16; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">AFP photojournalism · framing guide</div>
+    <h1>先决定读者要看见什么</h1>
+    <p class="intro">同一条报道可以强调现场、人物行动或关键细节。选最能补充事实的一种取景方向；这些线稿只示意构图，不是新闻照片或生图结果。</p>
+    <span class="note">3 种取景方向 · 可离线浏览 · 不依赖外部图片</span>
+  </header>
+
+  <section class="cards" aria-label="新闻纪实取景方向">
+    <article>
+      <svg class="scene" viewBox="0 0 480 300" role="img" aria-labelledby="wide-title wide-desc">
+        <title id="wide-title">环境全景构图示意</title><desc id="wide-desc">宽阔空间中有两个人物和一张工作台，背景交代地点。</desc>
+        <rect x="25" y="22" width="430" height="256" rx="6" fill="#f6f7f3" stroke="#657269" stroke-width="3"/>
+        <path d="M26 190h428M90 23v167M390 23v167" fill="none" stroke="#bcc6bd" stroke-width="3"/>
+        <path d="M73 93h58v53H73zM349 78h24v112h-24zM374 78h24v112h-24z" fill="#d8e0d8" stroke="#87958a" stroke-width="2"/>
+        <path d="M175 184h155l-12 12H187zM188 197v49m129-49v49" fill="none" stroke="#657269" stroke-width="4"/>
+        <circle cx="159" cy="139" r="13" fill="#c78152"/><path d="M159 153v41m0-27-17 20m17-18 16 14m-16 11-12 34m12-34 13 34" fill="none" stroke="#315f4b" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="349" cy="153" r="12" fill="#c78152"/><path d="M349 165v34m0-22-14 14m14-14 14 13m-14 9-11 31m11-31 11 31" fill="none" stroke="#315f4b" stroke-width="6" stroke-linecap="round"/>
+        <path d="M215 178c8-19 21-19 29 0m23 0c8-19 20-19 28 0" fill="none" stroke="#c78152" stroke-width="4"/>
+      </svg>
+      <div class="body">
+        <div class="number">01 / ESTABLISH THE SCENE</div>
+        <h2>交代现场</h2>
+        <p class="question">事情发生在哪里？</p>
+        <p class="use">用环境全景呈现场地、人物和事件之间的关系。适合读者还不了解现场时。</p>
+        <pre id="wide">环境全景：用【已确认的现场】交代事件发生地，人物与环境共同呈现报道重点。</pre>
+        <button type="button" data-copy="wide">复制取景句</button>
+      </div>
+    </article>
+
+    <article>
+      <svg class="scene" viewBox="0 0 480 300" role="img" aria-labelledby="action-title action-desc">
+        <title id="action-title">人物行动构图示意</title><desc id="action-desc">一名人物正在搬动箱子，背景保留工作环境。</desc>
+        <rect x="25" y="22" width="430" height="256" rx="6" fill="#f6f7f3" stroke="#657269" stroke-width="3"/>
+        <path d="M26 208h428M76 23v185M404 23v185" fill="none" stroke="#bcc6bd" stroke-width="3"/>
+        <path d="M83 133h51v75H83zM365 93h31v115h-31z" fill="#d8e0d8" stroke="#87958a" stroke-width="2"/>
+        <circle cx="225" cy="91" r="20" fill="#c78152"/><path d="M225 113v68m0-45-39 25m39-20 39 30m-39 0-22 56m22-56 37 46" fill="none" stroke="#315f4b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M260 153l27 7" stroke="#315f4b" stroke-width="8" stroke-linecap="round"/>
+        <path d="M281 145h66v52h-66z" fill="#d9b889" stroke="#7d694e" stroke-width="3"/><path d="M281 161h66" stroke="#7d694e" stroke-width="2"/>
+        <path d="M112 95h34m-34 14h24" stroke="#b5c0b6" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="body">
+        <div class="number">02 / SHOW THE ACTION</div>
+        <h2>呈现行动</h2>
+        <p class="question">人物正在做什么？</p>
+        <p class="use">用环境中景聚焦人物动作，同时保留理解现场所需的背景。适合报道中的关键时刻。</p>
+        <pre id="action">人物中景：让【已确认的人物】正在【已确认的动作】成为焦点，保留必要的现场环境。</pre>
+        <button type="button" data-copy="action">复制取景句</button>
+      </div>
+    </article>
+
+    <article>
+      <svg class="scene" viewBox="0 0 480 300" role="img" aria-labelledby="detail-title detail-desc">
+        <title id="detail-title">动作细节构图示意</title><desc id="detail-desc">近景呈现整理物件的双手和桌面细节，不展示身份。</desc>
+        <rect x="25" y="22" width="430" height="256" rx="6" fill="#f6f7f3" stroke="#657269" stroke-width="3"/>
+        <path d="M26 203h428M78 204h324v43H78z" fill="#d9b889" stroke="#7d694e" stroke-width="3"/>
+        <path d="M149 103c10-13 23-8 27 6l12 36 22-33c8-12 22-8 21 6l-4 40 27-24c11-10 22 0 15 12l-30 46c-10 15-24 21-45 18l-35-7c-19-4-27-19-22-36z" fill="#e6b69a" stroke="#785c4e" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M275 121c8-14 21-11 26 2l9 24 23-24c10-10 22-2 16 11l-21 44c-8 16-20 24-41 23l-25-1" fill="#e6b69a" stroke="#785c4e" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M121 186c13-20 29-24 45-14m123 22c17-9 37-7 51 5" fill="none" stroke="#87958a" stroke-width="3"/>
+        <circle cx="185" cy="221" r="13" fill="#c78152"/><circle cx="225" cy="224" r="11" fill="#879d64"/><path d="M333 218h31v17h-31z" fill="#b57b4c"/>
+      </svg>
+      <div class="body">
+        <div class="number">03 / SHOW A DETAIL</div>
+        <h2>捕捉细节</h2>
+        <p class="question">哪个动作或物件最能补充信息？</p>
+        <p class="use">用近景表现有报道依据的手部动作或物件。只有细节本身有意义时才选，不把它包装成证据。</p>
+        <pre id="detail">动作近景：聚焦【报道已确认的手部动作或物件细节】，不增加未说明的身份和场景信息。</pre>
+        <button type="button" data-copy="detail">复制取景句</button>
+      </div>
+    </article>
+  </section>
+  <p id="status" role="status" aria-live="polite"></p>
+  <footer>本页是构图草图，不包含新闻照片。实际提示词仍须以用户确认的事件事实为准；对真实报道画面，在图片外标注 AI 示意图。</footer>
+</main>
+<script>
+  const status = document.querySelector('#status');
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const text = document.getElementById(button.dataset.copy).textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = '取景句已复制。';
+      } catch {
+        const field = document.createElement('textarea');
+        field.value = text;
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.append(field);
+        field.select();
+        const copied = document.execCommand('copy');
+        field.remove();
+        status.textContent = copied ? '取景句已复制。' : '浏览器未开放剪贴板，请选中上方文字复制。';
+      }
+    });
+  });
+</script>
+</body>
+</html>
