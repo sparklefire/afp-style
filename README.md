@@ -58,3 +58,5 @@
 python scripts/validate_package.py
 python -m unittest discover -s tests -v
 ```
+
+在安装了该 Skill 的 Agent 中做请求路由和提示词冒烟测试，请按[手工验收用例](tests/skill-smoke.md)逐项检查。实际出图和转绘质量需要在提供图像工具的目标环境中另测。
