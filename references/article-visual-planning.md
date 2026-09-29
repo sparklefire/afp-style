@@ -44,4 +44,19 @@
 python scripts/insert_illustrations.py --article report.md --manifest images.json
 ```
 
-清单为 JSON 数组，每项包含 `anchor`、`position` 和 `image_path`，可选 `caption`、`alt`、`disclosure`。锚点必须唯一匹配标题或段落；缺失或重复时脚本会报错，不会把图片静默追加到文末。默认输出同目录的 `report_afp_illustrated.md`，不会覆盖原文；只有指定 `--force` 才会覆盖已有输出文件。
+清单为 JSON 数组，每项包含 `anchor`、`position` 和 `image_path`，可选 `caption`、`alt`、`disclosure`。`alt` 简短描述图中可见内容；`caption` 只写文章确认的事实；AI 说明与图注分开。脚本默认用“AI 生成示意图”，转绘实际照片时应将 `disclosure` 设为“AI 编辑示意图”。
+
+```json
+[
+  {
+    "anchor": "志愿者清晨抵达",
+    "position": "after",
+    "image_path": "images/food-station.webp",
+    "alt": "志愿者整理蔬菜和罐头",
+    "caption": "社区中心食物站的志愿者整理捐赠食品。",
+    "disclosure": "AI 生成示意图"
+  }
+]
+```
+
+锚点必须唯一匹配标题或段落；缺失或重复时脚本会报错，不会把图片静默追加到文末。默认输出同目录的 `report_afp_illustrated.md`，不会覆盖原文；只有指定 `--force` 才会覆盖已有输出文件。

@@ -51,7 +51,7 @@ def insert_illustrations(article: str, manifest: list[dict]) -> str:
     if not isinstance(manifest, list):
         raise ValueError("Manifest must be a JSON array.")
     lines = article.splitlines(keepends=True)
-    insertions: dict[int, list[str]] = defaultdict(list)
+    insertions: dict[int, list[tuple[str, str]]] = defaultdict(list)
 
     for number, item in enumerate(manifest, start=1):
         if not isinstance(item, dict):

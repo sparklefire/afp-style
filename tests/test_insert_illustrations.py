@@ -25,6 +25,15 @@ class InsertIllustrationsTests(unittest.TestCase):
         )
         self.assertTrue(result.startswith("# Report\n\n"))
 
+    def test_allows_edited_image_disclosure_separate_from_caption(self):
+        result = insert_illustrations(self.article, [{
+            "anchor": "Second paragraph", "position": "before", "image_path": "edited.webp",
+            "alt": "工程师查看服务器机柜", "caption": "工程师在数据中心检查服务器。",
+            "disclosure": "AI 编辑示意图",
+        }])
+        self.assertIn("![工程师查看服务器机柜](edited.webp)", result)
+        self.assertIn("*AI 编辑示意图 · 工程师在数据中心检查服务器。*", result)
+
     def test_can_insert_before_a_heading(self):
         result = insert_illustrations(self.article, [{
             "anchor": "# Report", "position": "before", "image_path": "lead.webp",
