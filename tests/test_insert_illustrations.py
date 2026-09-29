@@ -1,4 +1,9 @@
+import json
+import subprocess
+import sys
+import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.insert_illustrations import insert_illustrations
 
@@ -39,6 +44,34 @@ class InsertIllustrationsTests(unittest.TestCase):
 
     def test_empty_manifest_preserves_source(self):
         self.assertEqual(insert_illustrations(self.article, []), self.article)
+
+    def test_cli_writes_a_new_file_and_requires_force_to_replace_it(self):
+        script = Path(__file__).parents[1] / "scripts" / "insert_illustrations.py"
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "report.md"
+            manifest = root / "images.json"
+            output = root / "result.md"
+            source.write_text(self.article, encoding="utf-8")
+            manifest.write_text(json.dumps([{
+                "anchor": "First paragraph", "image_path": "one.webp",
+            }]), encoding="utf-8")
+            command = [sys.executable, str(script), "--article", str(source), "--manifest", str(manifest), "--output", str(output)]
+
+            first = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(first.returncode, 0, first.stderr)
+            self.assertEqual(source.read_text(encoding="utf-8"), self.article)
+            self.assertTrue(output.exists())
+
+            second = subprocess.run(command, capture_output=True, text=True)
+            self.assertNotEqual(second.returncode, 0)
+            self.assertIn("already exists", second.stderr)
+            self.assertEqual(subprocess.run(command + ["--force"], capture_output=True).returncode, 0)
+
+            overwrite_source = command[:-2] + ["--output", str(source)]
+            blocked = subprocess.run(overwrite_source, capture_output=True, text=True)
+            self.assertNotEqual(blocked.returncode, 0)
+            self.assertEqual(source.read_text(encoding="utf-8"), self.article)
 
 
 if __name__ == "__main__":
