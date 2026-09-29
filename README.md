@@ -39,3 +39,10 @@
 ## 能力边界
 
 “纪实风格”描述的是视觉语言，不是新闻真实性认证。涉及现实事件或真实人物的生成、转绘图片，应在图片之外标为“AI 生成示意图”或“AI 编辑示意图”；事件事实和图注只能来自用户确认的材料。Skill 不代表法新社官方作品或背书，也不生成 AFP 标志。
+
+## 本地校验
+
+```bash
+python scripts/validate_package.py
+python -m unittest discover -s tests -v
+```
