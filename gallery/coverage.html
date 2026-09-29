@@ -14,6 +14,13 @@
     h1 { margin:.45rem 0 .5rem; font-size:clamp(2rem,5vw,3.4rem); line-height:1.08; letter-spacing:-.045em; }
     .intro { max-width:680px; color:var(--muted); }
     .note { display:inline-block; margin:15px 0 28px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:.83rem; }
+    .facts { margin:0 0 18px; padding:16px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+    .facts h2 { margin:0 0 10px; font-size:1rem; }
+    .facts-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    .facts label { display:grid; gap:5px; color:var(--muted); font-size:.82rem; }
+    .facts input { min-width:0; padding:9px 10px; border:1px solid var(--line); border-radius:8px; color:var(--ink); font:inherit; font-size:.9rem; }
+    .facts input:focus-visible { outline:3px solid #df9d6266; border-color:var(--warm); }
+    .facts-note { margin:9px 0 0; color:var(--muted); font-size:.8rem; }
     .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
     article { overflow:hidden; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:0 8px 28px #26372a0b; }
     .scene { display:block; width:100%; aspect-ratio:16/10; background:#e7ebe5; }
@@ -28,7 +35,8 @@
     button:focus-visible { outline:3px solid #df9d62; outline-offset:2px; }
     #status { min-height:1.5em; margin:8px 0 0; color:var(--muted); font-size:.82rem; }
     footer { margin-top:28px; padding-top:15px; border-top:1px solid var(--line); color:var(--muted); font-size:.87rem; }
-    @media (max-width:800px) { .cards { grid-template-columns:1fr; } .use, pre { min-height:0; } main { padding-top:34px; } }
+    @media (max-width:800px) { .cards { grid-template-columns:1fr; } .facts-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .use, pre { min-height:0; } main { padding-top:34px; } }
+    @media (max-width:480px) { .facts-grid { grid-template-columns:1fr; } }
     @media (prefers-reduced-motion:no-preference) { article { transition:transform .18s ease, box-shadow .18s ease; } article:hover { transform:translateY(-3px); box-shadow:0 12px 32px #26372a16; } }
   </style>
 </head>
@@ -40,6 +48,17 @@
     <p class="intro">同一条报道可以强调现场、人物行动或关键细节。选最能补充事实的一种取景方向；这些线稿只示意构图，不是新闻照片或生图结果。</p>
     <span class="note">3 种取景方向 · 可离线浏览 · 不依赖外部图片</span>
   </header>
+
+  <section class="facts" aria-labelledby="facts-title">
+    <h2 id="facts-title">把已确认的报道信息带入取景句（可选）</h2>
+    <div class="facts-grid">
+      <label for="fact-location">现场或地点<input id="fact-location" type="text" placeholder="如：社区中心的食物站" autocomplete="off"></label>
+      <label for="fact-person">人物<input id="fact-person" type="text" placeholder="如：一名志愿者" autocomplete="off"></label>
+      <label for="fact-action">正在进行的动作<input id="fact-action" type="text" placeholder="如：整理捐赠食品" autocomplete="off"></label>
+      <label for="fact-detail">有意义的动作或物件细节<input id="fact-detail" type="text" placeholder="如：把蔬菜放到食品台上" autocomplete="off"></label>
+    </div>
+    <p class="facts-note">只填报道已确认的信息；留空项保留占位符。内容仅在本页替换取景句，不会上传。</p>
+  </section>
 
   <section class="cards" aria-label="新闻纪实取景方向">
     <article>
@@ -109,6 +128,26 @@
 </main>
 <script>
   const status = document.querySelector('#status');
+  const promptBase = new Map([...document.querySelectorAll('[data-copy]')].map(button => {
+    const targetId = button.dataset.copy;
+    return [targetId, document.getElementById(targetId).textContent];
+  }));
+  const factBindings = {
+    wide: [['【已确认的现场】', 'fact-location']],
+    action: [['【已确认的人物】', 'fact-person'], ['【已确认的动作】', 'fact-action']],
+    detail: [['【报道已确认的手部动作或物件细节】', 'fact-detail']]
+  };
+  function refreshPrompts() {
+    for (const [targetId, bindings] of Object.entries(factBindings)) {
+      let text = promptBase.get(targetId);
+      for (const [placeholder, inputId] of bindings) {
+        const value = document.getElementById(inputId).value.trim();
+        if (value) text = text.replace(placeholder, value);
+      }
+      document.getElementById(targetId).textContent = text;
+    }
+  }
+  document.querySelectorAll('.facts input').forEach(input => input.addEventListener('input', refreshPrompts));
   document.querySelectorAll('[data-copy]').forEach(button => {
     button.addEventListener('click', async () => {
       const text = document.getElementById(button.dataset.copy).textContent;
