@@ -9,6 +9,8 @@ description: "Create or edit 法新社风格新闻纪实图片 from confirmed fa
 
 用户请求新闻封面、文章头图或社媒横幅时，读取 [references/news-cover.md](references/news-cover.md)。用户提供整篇文章并要求多张正文配图时，读取 [references/article-visual-planning.md](references/article-visual-planning.md)。单张图片任务不加载这两份参考。
 
+只有用户指定生图模型/平台，或要求平台专属参数时，才读取 [references/model-adaptation.md](references/model-adaptation.md)。
+
 ## 先判断任务和素材角色
 
 区分用户要交付什么，以及每张输入图的用途。不要把风格参考图误当成待编辑图片。
